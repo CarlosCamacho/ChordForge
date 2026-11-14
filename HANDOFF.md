@@ -1,0 +1,13 @@
+# Current Baton Pass
+- **Current State:** v9 (index.html) builds and runs — single-file HTML app with 12 retro/modern sound engines, 176 progressions, 4-track pattern-based composition (chords/bass/melody/rhythm), section-aware arrangement, mood-modified generation, MIDI/WAV/AIFF export. All on `main` branch, commit c295cc5.
+- **Immediate Next Step:**
+  - #1 — Phrase-driven composition engine (highest priority: convert chords from single events to full bars with independent per-track patterns)
+  - #2 — Motif-based melody generation (replace random chord-tone picking with remembered motifs)
+- **Dead Ends / Do Not Repeat:**
+  - Simple/Advanced mode split confused users — removed in v9, keep single mode
+  - `roundRect()` canvas API breaks Safari — use `fillRect()` instead
+  - `overflow-x:hidden` on body blocks mobile scrolling — never re-add
+  - Random chord shuffle destroys musical logic — replaced with "New" regeneration
+  - Single oscillator per note sounds thin — always use multi-oscillator stacking with detuning
+  - `beatsPerChord` multiplier made songs sound slow — use 8th note step resolution instead
+- **Verification:** Open `index.html` in browser, select NES engine, hit Generate & Play, confirm audio plays and chords highlight. Export MIDI and verify it opens in a DAW.
